@@ -1,0 +1,20 @@
+<html>
+<body>
+
+<ul>
+<li>Latest Threads</li>
+{% for t in latest_threads_list %}
+<li>
+<h2>{{t.id}} | {{t.title}}</h2>
+<p>{{t.body}}</p>
+</li>
+{% endfor %}
+</ul>
+
+<form action={% url 'callresp:newthread' %} method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Submit">
+</form>
+</body>
+</html>
