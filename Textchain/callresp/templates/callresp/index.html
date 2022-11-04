@@ -3,6 +3,7 @@
 
 <ul>
 <li>Latest Threads</li>
+{% if latest_threads_list is defined %}
 {% for t in latest_threads_list %}
 <li>
 <h2>{{t.id}} | {{t.title}}</h2>
@@ -10,6 +11,11 @@
 </li>
 {% endfor %}
 </ul>
+{% else %}
+<ul>
+<li><h2>No threads</h2></li>
+</ul>
+{% endif %}
 
 <form action={% url 'callresp:newthread' %} method="post">
     {% csrf_token %}

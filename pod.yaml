@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: txtchain
+spec:
+  containers:
+  - name: textchain
+    image: txtchain:latest
+    imagePullPolicy: Never
+    ports:
+    - containerPort: 8000
